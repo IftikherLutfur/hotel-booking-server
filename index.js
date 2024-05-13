@@ -69,10 +69,10 @@ async function run() {
       res.send(result)
     })
     // //Delete the specific order
-    // app.delete('/post/:id',async (req, res)=>{
-    //   const result = await postBooking.deleteOne({_id: new  ObjectId(req.params.id)})
-    //   res.send(result)
-    // })
+    app.delete('/post/:id',async (req, res)=>{
+      const result = await postBooking.deleteOne({_id: new  ObjectId(req.params.id)})
+      res.send(result)
+    })
 
     // //Update availability in a room
     // app.patch('/rooms/:id', async (req, res) => {
