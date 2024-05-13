@@ -45,11 +45,11 @@ async function run() {
     })
 
     // //Post Order
-    // app.post('/post', async (req, res) => {
-    //   const body = req.body;
-    //   const result = await postBooking.insertOne(body)
-    //   res.send(result)
-    // })
+    app.post('/post', async (req, res) => {
+      const body = req.body;
+      const result = await postBooking.insertOne(body)
+      res.send(result)
+    })
     // //Find the all order
     // app.get('/post', async (req, res) => {
     //   const result = await postBooking.find(req.body).toArray()
