@@ -44,48 +44,47 @@ async function run() {
       res.send(result)
     })
 
-    //Post Order
-    app.post('/post', async (req, res) => {
-      const body = req.body;
-      const result = await postBooking.insertOne(body)
-      res.send(result)
-    })
-    //Find the all order
-    app.get('/post', async (req, res) => {
-      const result = await postBooking.find(req.body).toArray()
-      res.send(result)
-    })
-    //Find the specific order by id
-    app.get('/post/:id', async(req, res)=>{
-      const result = await postBooking.findOne({_id: new ObjectId(req.params.id)})
-      res.send(result)
-    })
+    // //Post Order
+    // app.post('/post', async (req, res) => {
+    //   const body = req.body;
+    //   const result = await postBooking.insertOne(body)
+    //   res.send(result)
+    // })
+    // //Find the all order
+    // app.get('/post', async (req, res) => {
+    //   const result = await postBooking.find(req.body).toArray()
+    //   res.send(result)
+    // })
+    // //Find the specific order by id
+    // app.get('/post/:id', async(req, res)=>{
+    //   const result = await postBooking.findOne({_id: new ObjectId(req.params.id)})
+    //   res.send(result)
+    // })
 
-    //Find the specific order by email
-    app.get('/post/:email', async (req, res) => {
-      const email = req.params.email;
-      const query = { email: email }
-      const result = await postBooking.find(query).toArray()
-      res.send(result)
-    })
-    //Delete the specific order
-    app.delete('/post/:id',async (req, res)=>{
-      const result = await postBooking.deleteOne({_id: new  ObjectId(req.params.id)})
-      res.send(result)
-    })
+    // //Find the specific order by email
+    // app.get('/post/:email', async (req, res) => {
+    //   const email = req.params.email;
+    //   const query = { email: email }
+    //   const result = await postBooking.find(query).toArray()
+    //   res.send(result)
+    // })
+    // //Delete the specific order
+    // app.delete('/post/:id',async (req, res)=>{
+    //   const result = await postBooking.deleteOne({_id: new  ObjectId(req.params.id)})
+    //   res.send(result)
+    // })
 
-    //Update availability in a room
-
-    app.patch('/rooms/:id', async (req, res) => {
-      const id = req.params.id;
-      const availability = req.body
-      const query = { _id: new ObjectId(id) }
-      const updateDocs = {
-        $set: { ...availability }
-      }
-      const result = await roomBooking.updateOne(query, updateDocs)
-      res.send(result)
-    })
+    // //Update availability in a room
+    // app.patch('/rooms/:id', async (req, res) => {
+    //   const id = req.params.id;
+    //   const availability = req.body
+    //   const query = { _id: new ObjectId(id) }
+    //   const updateDocs = {
+    //     $set: { ...availability }
+    //   }
+    //   const result = await roomBooking.updateOne(query, updateDocs)
+    //   res.send(result)
+    // })
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
