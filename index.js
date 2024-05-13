@@ -75,16 +75,16 @@ async function run() {
     })
 
     // //Update availability in a room
-    // app.patch('/rooms/:id', async (req, res) => {
-    //   const id = req.params.id;
-    //   const availability = req.body
-    //   const query = { _id: new ObjectId(id) }
-    //   const updateDocs = {
-    //     $set: { ...availability }
-    //   }
-    //   const result = await roomBooking.updateOne(query, updateDocs)
-    //   res.send(result)
-    // })
+    app.patch('/rooms/:id', async (req, res) => {
+      const id = req.params.id;
+      const availability = req.body
+      const query = { _id: new ObjectId(id) }
+      const updateDocs = {
+        $set: { ...availability }
+      }
+      const result = await roomBooking.updateOne(query, updateDocs)
+      res.send(result)
+    })
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
