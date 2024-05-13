@@ -62,12 +62,12 @@ async function run() {
     })
 
     // //Find the specific order by email
-    // app.get('/post/:email', async (req, res) => {
-    //   const email = req.params.email;
-    //   const query = { email: email }
-    //   const result = await postBooking.find(query).toArray()
-    //   res.send(result)
-    // })
+    app.get('/post/:email', async (req, res) => {
+      const email = req.params.email;
+      const query = { email: email }
+      const result = await postBooking.find(query).toArray()
+      res.send(result)
+    })
     // //Delete the specific order
     // app.delete('/post/:id',async (req, res)=>{
     //   const result = await postBooking.deleteOne({_id: new  ObjectId(req.params.id)})
