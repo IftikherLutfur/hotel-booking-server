@@ -56,10 +56,10 @@ async function run() {
       res.send(result)
     })
     // //Find the specific order by id
-    // app.get('/post/:id', async(req, res)=>{
-    //   const result = await postBooking.findOne({_id: new ObjectId(req.params.id)})
-    //   res.send(result)
-    // })
+    app.get('/post/:id', async(req, res)=>{
+      const result = await postBooking.findOne({_id: new ObjectId(req.params.id)})
+      res.send(result)
+    })
 
     // //Find the specific order by email
     // app.get('/post/:email', async (req, res) => {
